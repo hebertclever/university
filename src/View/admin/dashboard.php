@@ -45,14 +45,14 @@ $students = $adminController->getAllStudents();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($teachers as $teacher): ?>
+                        <?php foreach ($teachers as $teacher){ ?>
                         <tr>
-                            <td class="py-2 px-4 border"><?= $teacher->UserID; ?></td>
-                            <td class="py-2 px-4 border"><?= $teacher->UserName; ?></td>
-                            <td class="py-2 px-4 border"><?= $teacher->Email; ?></td>
-                            <td class="py-2 px-4 border"><?= $teacher->Qualifications; ?></td>
+                            <td class="py-2 px-4 border"><?= $teacher["UserID"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $teacher["UserName"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $teacher["Email"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $teacher["Qualifications"]; ?></td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php }; ?>
                     </tbody>
                 </table>
             </div>
@@ -71,14 +71,14 @@ $students = $adminController->getAllStudents();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($students as $student): ?>
+                        <?php foreach ($students as $student){ ?>
                         <tr>
-                            <td class="py-2 px-4 border"><?= $student->UserID; ?></td>
-                            <td class="py-2 px-4 border"><?= $student->UserName; ?></td>
-                            <td class="py-2 px-4 border"><?= $student->Email; ?></td>
-                            <td class="py-2 px-4 border"><?= $student->GradeLevel; ?></td>
+                            <td class="py-2 px-4 border"><?= $student["UserID"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $student["UserName"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $student["Email"]; ?></td>
+                            <td class="py-2 px-4 border"><?= $student["GradeLevel"]; ?></td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php }; ?>
                     </tbody>
                 </table>
             </div>

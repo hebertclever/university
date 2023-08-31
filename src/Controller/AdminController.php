@@ -15,7 +15,7 @@ class AdminController {
       $query = $db->prepare("SELECT * FROM users WHERE RoleID = 2");
       $query->execute();
       $teachers = $query->fetchAll(PDO::FETCH_CLASS, 'Teacher');
-      var_dump($teachers);  // Para debug
+      var_dump($teachers); 
       return $teachers;
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());
@@ -31,7 +31,7 @@ class AdminController {
       $query = $db->prepare("SELECT * FROM users WHERE RoleID = 3");
       $query->execute();
       $students = $query->fetchAll(PDO::FETCH_CLASS, 'Student');
-      var_dump($students);  // Para debug
+      var_dump($students);  
       return $students;
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());

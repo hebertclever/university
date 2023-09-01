@@ -15,9 +15,9 @@ class AdminController {
       // $query = $db->prepare("SELECT * FROM users WHERE RoleID = 2");
       // $query->execute();
       $query = $db->query("SELECT * FROM users WHERE RoleID = 2");
-      // $teachers = $query->fetchAll(PDO::FETCH_CLASS, 'Teacher');
+      
       $teachers = $query->fetchAll(PDO::FETCH_ASSOC);
-      // var_dump($teachers); 
+      
       return $teachers;
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());
@@ -39,4 +39,11 @@ class AdminController {
       die('Erro: ' . $e->getMessage());
     }
   }
+
+  public function getAdminName() {
+    // Seu código para retornar o nome do admin
+    return "SeuNome";
+  }
+  
 }
+

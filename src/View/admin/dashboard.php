@@ -18,15 +18,7 @@ $students = $adminController->getAllStudents();
 <body class="bg-gray-100">
     <div class="flex">
         <!-- Sidebar -->
-        <div class="w-64 bg-blue-500 text-white h-screen">
-            <div class="p-4 text-xl font-semibold">Dashboard Admin</div>
-            <nav>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-400">Home</a>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-400">Teachers</a>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-400">Students</a>
-                <a href="#" class="block px-4 py-2 hover:bg-blue-400">Courses</a>
-            </nav>
-        </div>
+        <?php include '../../View/components/sidebar.php'; ?>
 
         <!-- Content -->
         <div class="flex-1 p-6">

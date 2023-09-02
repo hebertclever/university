@@ -637,10 +637,6 @@ video {
   height: 100vh;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .w-10 {
   width: 2.5rem;
 }
@@ -657,24 +653,16 @@ video {
   width: 16rem;
 }
 
-.w-\[100\%\] {
-  width: 100%;
-}
-
 .w-screen {
   width: 100vw;
 }
 
-.min-w-full {
-  min-width: 100%;
+.w-full {
+  width: 100%;
 }
 
 .flex-1 {
   flex: 1 1 0%;
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -697,8 +685,16 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-lg {
@@ -714,14 +710,37 @@ video {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-1\.5 {
+  padding: 0.375rem;
 }
 
 .p-2 {
@@ -734,6 +753,14 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.p-0\.5 {
+  padding: 0.125rem;
 }
 
 .px-4 {
@@ -751,8 +778,17 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-2xl {
@@ -765,8 +801,17 @@ video {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .font-semibold {
   font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .text-green-500 {
@@ -774,9 +819,9 @@ video {
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
-.text-icon-1 {
+.text-icon-2 {
   --tw-text-opacity: 1;
-  color: rgb(183 198 235 / var(--tw-text-opacity));
+  color: rgb(190 184 255 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -808,40 +853,57 @@ video {
   transition-duration: 300ms;
 }
 
-body {
+*{
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #F3F2F7;
+  box-sizing: border-box;
 }
 
-.hover\:text-text-hover:hover {
-  --tw-text-opacity: 1;
-  color: rgb(55 59 70 / var(--tw-text-opacity));
+body {
+  height: 100vh;
+  background-color: #DEE9F7;
 }
 
-.group:hover .group-hover\:brightness-\[0\.3\] {
-  --tw-brightness: brightness(0.3);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+/* ****************sidebar1******************* */
+
+/* .toggle {
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translate(-50%);
+
 }
 
-.group:hover .group-hover\:filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+.icons:hover {
+    background-color:#2A3965;    
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    padding: 15px;
 }
 
-.group:active .group-active\:brightness-\[0\.5\] {
-  --tw-brightness: brightness(0.5);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.group:active .group-active\:filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-@media (min-width: 640px) {
-  .sm\:justify-start {
-    justify-content: flex-start;
+.icons path {
+    fill: #BEB8FF; 
   }
+  
+  .icons:hover path {
+    fill: #BEB8FF;
+    padding: 4px;
+  }
+
+  .disable-hover:hover {
+    background-color: unset !important;
+    width: unset !important;
+    height: unset !important;
+    border-radius: unset !important;
+    padding: unset !important;
+} */
+
+/* ****************sidebar2******************* */
+
+.icons path{
+  fill: white;
 }
 
 @media (min-width: 1024px) {
@@ -877,4 +939,3 @@ body {
     justify-content: space-between;
   }
 }
-

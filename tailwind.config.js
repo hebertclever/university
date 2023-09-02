@@ -10,6 +10,7 @@ module.exports = {
         'background': '#002D82',
         'text-1': '#1A2947',
         'text-2': '#8C9DC6',
+        'text-hover': '#373B46',
         'icon-1': '#B7C6EB',
         'icon-2': '#5F40F9',
         'category-bg1': '#DEE9F7',

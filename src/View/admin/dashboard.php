@@ -15,14 +15,14 @@ $students = $adminController->getAllStudents();
     <link href="/dist/output.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d7477d78b2.js" crossorigin="anonymous"></script> <!-- FontAwesome -->
 </head>
-<body class="bg-gray-100">
-    <div class="flex">
+<body class="bg-gray-100 grid grid-cols-[1fr, 4fr]">
+    <div class=">
         <!-- Sidebar -->
         <?php include '../../View/components/sidebar.php'; ?>
 
         <!-- Content -->
         <div class="flex-1 p-6">
-            <div class="breadcrumb">Home/Students</div>  <!-- Breadcumb -->
+             
             <h1 class="text-2xl font-semibold mb-3">Students Lists</h1>
             <p>Welcome, Admin <?php echo $adminController->getAdminName(); ?></p>  <!-- Dynamic admin name -->
             
@@ -30,8 +30,8 @@ $students = $adminController->getAllStudents();
             <input type="text" class="mb-4 p-2 border rounded" placeholder="Search Students">
             
             <!-- Students Table -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <table class="min-w-full bg-white">
+            <div class="bg-white rounded-lg shadow p-6 w-screen h-screen">
+                <table class=" bg-white">
                     <thead>
                         <tr>
                             <th class="py-2 px-4 border">#</th>

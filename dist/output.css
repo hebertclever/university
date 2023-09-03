@@ -635,6 +635,10 @@ video {
   margin-top: 1.5rem;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -982,6 +986,14 @@ body {
   fill: hwb(0 100% 0%);
 }
 
+.hidden {
+  display: none !important;
+}
+
+.arrow-left svg path {
+  transition: transform 0.3s ease-in-out;
+}
+
 .focus-within\:text-white:focus-within {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1018,6 +1030,12 @@ body {
   --tw-ring-color: rgb(107 114 128 / var(--tw-ring-opacity));
 }
 
+@media (min-width: 640px) {
+  .sm\:hidden {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:m-12 {
     margin: 3rem;
@@ -1051,4 +1069,4 @@ body {
     justify-content: space-between;
   }
 }
-
+  

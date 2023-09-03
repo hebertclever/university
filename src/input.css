@@ -56,5 +56,6 @@ body {
 /* ****************sidebar2******************* */
 
 .icons path{
-    fill: white;
+    fill: hwb(0 100% 0%);
 }
+

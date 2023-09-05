@@ -1,49 +1,43 @@
 <?php
-//Em src/Controller/AdminController.php
-require_once __DIR__ . '/../Model/User.php';
-require_once __DIR__ . '/../Model/Teacher.php';
-require_once __DIR__ . '/../Model/Student.php';
-require_once __DIR__ . '/../Database/DB.php';
+require_once __DIR__ . '/UserController.php';
 
-class AdminController {
-  public function getAllTeachers() {
+class AdminController extends UserController
+{
+  public function getAllTeachers()
+  {
     try {
-      $db = Database::connect();
-      if($db == null) {
-        die("Falha na conexão com o banco de dados");
-      }
-      // $query = $db->prepare("SELECT * FROM users WHERE RoleID = 2");
-      // $query->execute();
-      $query = $db->query("SELECT * FROM users WHERE RoleID = 2");
-      
-      $teachers = $query->fetchAll(PDO::FETCH_ASSOC);
-      
-      return $teachers;
+      $db = $this->connectDB();
+      $query = $db->query("SELECT * FROM users WHERE roleId = 2");
+      return $query->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());
     }
   }
 
-  public function getAllStudents() {
+  public function getAllStudents()
+  {
     try {
-      $db = Database::connect();
-      if($db == null) {
-        die("Falha na conexão com o banco de dados");
-      }
-      $query = $db->prepare("SELECT * FROM users WHERE RoleID = 3");
-      $query->execute();
-      $students = $query->fetchAll(PDO::FETCH_ASSOC);
-      // var_dump($students);  
-      return $students;
+      $db = $this->connectDB();
+      $query = $db->query("SELECT * FROM users WHERE roleId = 3");
+      return $query->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());
     }
   }
 
-  public function getAdminName() {
-    // Seu código para retornar o nome do admin
-    return "SeuNome";
+  public function deleteStudent($id)
+  {
+    try {
+      $db = $this->connectDB();
+      $query = $db->query("DELETE FROM users WHERE id = $id");
+    } catch (Exception $e) {
+      die('Erro: ' . $e->getMessage());
+    }
   }
+  public function getAdminName()
+{
   
+  return "SeuNome";
 }
 
+}

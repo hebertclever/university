@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/08/2023 às 21:53
+-- Tempo de geração: 05/09/2023 às 21:02
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -230,103 +230,152 @@ CREATE TABLE `teachers` (
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
-  `UserName` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `RoleID` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `roleId` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `users`
 --
 
-INSERT INTO `users` (`UserID`, `UserName`, `Password`, `Email`, `RoleID`) VALUES
-(16, 'AliceAdmin', 'pass1', 'alice@email.com', 1),
-(17, 'BobAdmin', 'pass2', 'bob@email.com', 1),
-(18, 'CindyAdmin', 'pass3', 'cindy@email.com', 1),
-(19, 'DaveAdmin', 'pass4', 'dave@email.com', 1),
-(20, 'EvaAdmin', 'pass5', 'eva@email.com', 1),
-(21, 'TomTeacher', 'pass6', 'tom@email.com', 2),
-(22, 'SaraTeacher', 'pass7', 'sara@email.com', 2),
-(23, 'PaulTeacher', 'pass8', 'paul@email.com', 2),
-(24, 'QuinnTeacher', 'pass9', 'quinn@email.com', 2),
-(25, 'RachelTeacher', 'pass10', 'rachel@email.com', 2),
-(26, 'SamTeacher', 'pass11', 'sam@email.com', 2),
-(27, 'TinaTeacher', 'pass12', 'tina@email.com', 2),
-(28, 'UrsulaTeacher', 'pass13', 'ursula@email.com', 2),
-(29, 'VictorTeacher', 'pass14', 'victor@email.com', 2),
-(30, 'WendyTeacher', 'pass15', 'wendy@email.com', 2),
-(31, 'AliceAdmin', 'pass1', 'alice@email.com', 1),
-(32, 'BobAdmin', 'pass2', 'bob@email.com', 1),
-(33, 'CindyAdmin', 'pass3', 'cindy@email.com', 1),
-(34, 'DaveAdmin', 'pass4', 'dave@email.com', 1),
-(35, 'EvaAdmin', 'pass5', 'eva@email.com', 1),
-(36, 'TomTeacher', 'pass6', 'tom@email.com', 2),
-(37, 'SaraTeacher', 'pass7', 'sara@email.com', 2),
-(38, 'PaulTeacher', 'pass8', 'paul@email.com', 2),
-(39, 'QuinnTeacher', 'pass9', 'quinn@email.com', 2),
-(40, 'RachelTeacher', 'pass10', 'rachel@email.com', 2),
-(41, 'SamTeacher', 'pass11', 'sam@email.com', 2),
-(42, 'TinaTeacher', 'pass12', 'tina@email.com', 2),
-(43, 'UrsulaTeacher', 'pass13', 'ursula@email.com', 2),
-(44, 'VictorTeacher', 'pass14', 'victor@email.com', 2),
-(45, 'WendyTeacher', 'pass15', 'wendy@email.com', 2),
-(46, 'AdamStudent', 'pass16', 'adam@email.com', 3),
-(47, 'BettyStudent', 'pass17', 'betty@email.com', 3),
-(48, 'CharlieStudent', 'pass18', 'charlie@email.com', 3),
-(49, 'DianaStudent', 'pass19', 'diana@email.com', 3),
-(50, 'EddieStudent', 'pass20', 'eddie@email.com', 3),
-(51, 'FionaStudent', 'pass21', 'fiona@email.com', 3),
-(52, 'GeorgeStudent', 'pass22', 'george@email.com', 3),
-(53, 'HannahStudent', 'pass23', 'hannah@email.com', 3),
-(54, 'IsaacStudent', 'pass24', 'isaac@email.com', 3),
-(55, 'JennyStudent', 'pass25', 'jenny@email.com', 3),
-(56, 'KevinStudent', 'pass26', 'kevin@email.com', 3),
-(57, 'LindaStudent', 'pass27', 'linda@email.com', 3),
-(58, 'MikeStudent', 'pass28', 'mike@email.com', 3),
-(59, 'NancyStudent', 'pass29', 'nancy@email.com', 3),
-(60, 'OscarStudent', 'pass30', 'oscar@email.com', 3),
-(61, 'PaulaStudent', 'pass31', 'paula@email.com', 3),
-(62, 'QuincyStudent', 'pass32', 'quincy@email.com', 3),
-(63, 'RebeccaStudent', 'pass33', 'rebecca@email.com', 3),
-(64, 'SteveStudent', 'pass34', 'steve@email.com', 3),
-(65, 'TaraStudent', 'pass35', 'tara@email.com', 3),
-(66, 'AliceAdmin', 'pass1', 'alice@email.com', 1),
-(67, 'BobAdmin', 'pass2', 'bob@email.com', 1),
-(68, 'CindyAdmin', 'pass3', 'cindy@email.com', 1),
-(69, 'DaveAdmin', 'pass4', 'dave@email.com', 1),
-(70, 'EvaAdmin', 'pass5', 'eva@email.com', 1),
-(71, 'TomTeacher', 'pass6', 'tom@email.com', 2),
-(72, 'SaraTeacher', 'pass7', 'sara@email.com', 2),
-(73, 'PaulTeacher', 'pass8', 'paul@email.com', 2),
-(74, 'QuinnTeacher', 'pass9', 'quinn@email.com', 2),
-(75, 'RachelTeacher', 'pass10', 'rachel@email.com', 2),
-(76, 'SamTeacher', 'pass11', 'sam@email.com', 2),
-(77, 'TinaTeacher', 'pass12', 'tina@email.com', 2),
-(78, 'UrsulaTeacher', 'pass13', 'ursula@email.com', 2),
-(79, 'VictorTeacher', 'pass14', 'victor@email.com', 2),
-(80, 'WendyTeacher', 'pass15', 'wendy@email.com', 2),
-(81, 'StudentOne', 'pass16', 'studentOne@email.com', 3),
-(82, 'StudentTwo', 'pass17', 'studentTwo@email.com', 3),
-(83, 'StudentThree', 'pass18', 'studentThree@email.com', 3),
-(84, 'StudentFour', 'pass19', 'studentFour@email.com', 3),
-(85, 'StudentFive', 'pass20', 'studentFive@email.com', 3),
-(86, 'StudentSix', 'pass21', 'studentSix@email.com', 3),
-(87, 'StudentSeven', 'pass22', 'studentSeven@email.com', 3),
-(88, 'StudentEight', 'pass23', 'studentEight@email.com', 3),
-(89, 'StudentNine', 'pass24', 'studentNine@email.com', 3),
-(90, 'StudentTen', 'pass25', 'studentTen@email.com', 3),
-(91, 'StudentEleven', 'pass26', 'studentEleven@email.com', 3),
-(92, 'StudentTwelve', 'pass27', 'studentTwelve@email.com', 3),
-(93, 'StudentThirteen', 'pass28', 'studentThirteen@email.com', 3),
-(94, 'StudentFourteen', 'pass29', 'studentFourteen@email.com', 3),
-(95, 'StudentFifteen', 'pass30', 'studentFifteen@email.com', 3),
-(96, 'StudentSixteen', 'pass31', 'studentSixteen@email.com', 3),
-(97, 'StudentSeventeen', 'pass32', 'studentSeventeen@email.com', 3),
-(98, 'StudentEighteen', 'pass33', 'studentEighteen@email.com', 3),
-(99, 'StudentNineteen', 'pass34', 'studentNineteen@email.com', 3),
-(100, 'StudentTwenty', 'pass35', 'studentTwenty@email.com', 3);
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `address`, `birthday`, `photo`) VALUES
+(101, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
+(102, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
+(103, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(104, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
+(105, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(106, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
+(107, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
+(108, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
+(109, 'mwoltering8', 'jM1.S`r<', 'mbolens8@usnews.com', NULL, 'Minta', NULL, NULL, NULL),
+(110, 'rgresty9', 'yK9\"J/mH~m(PXMV', 'rkunrad9@moonfruit.com', NULL, 'Rube', NULL, NULL, NULL),
+(111, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
+(112, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
+(113, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
+(114, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
+(115, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
+(116, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
+(117, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
+(118, 'gbrownsworthh', 'sQ9#xbvY', 'ghunsworthh@biblegateway.com', NULL, 'Georgy', NULL, NULL, NULL),
+(119, 'dbolwelli', 'sR9`r~tic}', 'dattlei@free.fr', NULL, 'Dorie', NULL, NULL, NULL),
+(120, 'dyuranovevj', 'kS2\"A)P{vwC%9e', 'dtotterdillj@skyrock.com', NULL, 'Davina', NULL, NULL, NULL),
+(121, 'mdunbabink', 'qR1/94EsL,', 'mcopseyk@google.ca', NULL, 'Mimi', NULL, NULL, NULL),
+(122, 'eethridgel', 'yE7=Lz}{uAFyXB,a', 'estapforthl@tumblr.com', NULL, 'Ezequiel', NULL, NULL, NULL),
+(123, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
+(124, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
+(125, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
+(126, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(127, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
+(128, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(129, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
+(130, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
+(131, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
+(132, 'mwoltering8', 'jM1.S`r<', 'mbolens8@usnews.com', NULL, 'Minta', NULL, NULL, NULL),
+(133, 'rgresty9', 'yK9\"J/mH~m(PXMV', 'rkunrad9@moonfruit.com', NULL, 'Rube', NULL, NULL, NULL),
+(134, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
+(135, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
+(136, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
+(137, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
+(138, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
+(139, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
+(140, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
+(141, 'gbrownsworthh', 'sQ9#xbvY', 'ghunsworthh@biblegateway.com', NULL, 'Georgy', NULL, NULL, NULL),
+(142, 'dbolwelli', 'sR9`r~tic}', 'dattlei@free.fr', NULL, 'Dorie', NULL, NULL, NULL),
+(143, 'dyuranovevj', 'kS2\"A)P{vwC%9e', 'dtotterdillj@skyrock.com', NULL, 'Davina', NULL, NULL, NULL),
+(144, 'mdunbabink', 'qR1/94EsL,', 'mcopseyk@google.ca', NULL, 'Mimi', NULL, NULL, NULL),
+(145, 'eethridgel', 'yE7=Lz}{uAFyXB,a', 'estapforthl@tumblr.com', NULL, 'Ezequiel', NULL, NULL, NULL),
+(146, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
+(147, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
+(148, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
+(149, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(150, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
+(151, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(152, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
+(153, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
+(154, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
+(155, 'mwoltering8', 'jM1.S`r<', 'mbolens8@usnews.com', NULL, 'Minta', NULL, NULL, NULL),
+(156, 'rgresty9', 'yK9\"J/mH~m(PXMV', 'rkunrad9@moonfruit.com', NULL, 'Rube', NULL, NULL, NULL),
+(157, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
+(158, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
+(159, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
+(160, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
+(161, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
+(162, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
+(163, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
+(164, 'gbrownsworthh', 'sQ9#xbvY', 'ghunsworthh@biblegateway.com', NULL, 'Georgy', NULL, NULL, NULL),
+(165, 'dbolwelli', 'sR9`r~tic}', 'dattlei@free.fr', NULL, 'Dorie', NULL, NULL, NULL),
+(166, 'dyuranovevj', 'kS2\"A)P{vwC%9e', 'dtotterdillj@skyrock.com', NULL, 'Davina', NULL, NULL, NULL),
+(167, 'mdunbabink', 'qR1/94EsL,', 'mcopseyk@google.ca', NULL, 'Mimi', NULL, NULL, NULL),
+(168, 'eethridgel', 'yE7=Lz}{uAFyXB,a', 'estapforthl@tumblr.com', NULL, 'Ezequiel', NULL, NULL, NULL),
+(169, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
+(170, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
+(171, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
+(172, 'tinch2', 'tT8\\5ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(173, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
+(174, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(175, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
+(176, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
+(177, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
+(178, 'adurbridge1b', 'wB3*$f+j\'cmJ|c', 'adagostino1b@youtu.be', NULL, 'Aridatha', NULL, NULL, NULL),
+(179, 'dlinebarger1a', 'iT0|S6\Z0', 'dmattke1a@merriam-webster.com', NULL, 'Dorene', NULL, NULL, NULL),
+(180, 'adurbridge1b', 'wB3*$f+j\'cmJ|c', 'adagostino1b@youtu.be', NULL, 'Aridatha', NULL, NULL, NULL),
+(181, 'jdoe1c', 'jD1@abc', 'jane.doe1c@example.com', NULL, 'Jane', NULL, NULL, NULL),
+(182, 'jsmith1d', 'jS1@xyz', 'john.smith1d@example.com', NULL, 'John', NULL, NULL, NULL),
+(183, 'ewatson1e', 'eW1@123', 'emily.watson1e@example.com', NULL, 'Emily', NULL, NULL, NULL),
+(184, 'rjohnson1f', 'rJ1@456', 'robert.johnson1f@example.com', NULL, 'Robert', NULL, NULL, NULL),
+(185, 'sconnor1g', 'sC1@789', 'sara.connor1g@example.com', NULL, 'Sara', NULL, NULL, NULL),
+(186, 'mjordan1h', 'mJ1@000', 'michael.jordan1h@example.com', NULL, 'Michael', NULL, NULL, NULL),
+(187, 'lsmith1i', 'lS1@111', 'lucas.smith1i@example.com', NULL, 'Lucas', NULL, NULL, NULL),
+(188, 'sbrown1j', 'sB1@222', 'sophia.brown1j@example.com', NULL, 'Sophia', NULL, NULL, NULL),
+(189, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', NULL, 'Grace', NULL, NULL, NULL),
+(190, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', NULL, 'Oliver', NULL, NULL, NULL),
+(191, 'zthomas1m', 'zT1@555', 'zoe.thomas1m@example.com', NULL, 'Zoe', NULL, NULL, NULL),
+(192, 'mmiller1n', 'mM1@666', 'mason.miller1n@example.com', NULL, 'Mason', NULL, NULL, NULL),
+(193, 'agarcia1o', 'aG1@777', 'ava.garcia1o@example.com', NULL, 'Ava', NULL, NULL, NULL),
+(194, 'lwilliamson1p', 'lW1@888', 'liam.williamson1p@example.com', NULL, 'Liam', NULL, NULL, NULL),
+(195, 'nrobertson1q', 'nR1@999', 'noah.robertson1q@example.com', NULL, 'Noah', NULL, NULL, NULL),
+(196, 'ejenkins1r', 'eJ1@aaa', 'ella.jenkins1r@example.com', NULL, 'Ella', NULL, NULL, NULL),
+(197, 'jcooper1s', 'jC1@bbb', 'james.cooper1s@example.com', NULL, 'James', NULL, NULL, NULL),
+(198, 'lwright1t', 'lW1@ccc', 'lily.wright1t@example.com', NULL, 'Lily', NULL, NULL, NULL),
+(199, 'oharris1u', 'oH1@ddd', 'oscar.harris1u@example.com', NULL, 'Oscar', NULL, NULL, NULL),
+(200, 'ithompson1v', 'iT1@eee', 'isabella.thompson1v@example.com', NULL, 'Isabella', NULL, NULL, NULL),
+(201, 'jdoe1c', 'jD1@abc', 'jane.doe1c@example.com', 2, 'Jane', NULL, NULL, NULL),
+(202, 'jsmith1d', 'jS1@xyz', 'john.smith1d@example.com', 2, 'John', NULL, NULL, NULL),
+(203, 'ewatson1e', 'eW1@123', 'emily.watson1e@example.com', 2, 'Emily', NULL, NULL, NULL),
+(204, 'rjohnson1f', 'rJ1@456', 'robert.johnson1f@example.com', 2, 'Robert', NULL, NULL, NULL),
+(205, 'sconnor1g', 'sC1@789', 'sara.connor1g@example.com', 2, 'Sara', NULL, NULL, NULL),
+(206, 'mjordan1h', 'mJ1@000', 'michael.jordan1h@example.com', 2, 'Michael', NULL, NULL, NULL),
+(207, 'lsmith1i', 'lS1@111', 'lucas.smith1i@example.com', 2, 'Lucas', NULL, NULL, NULL),
+(208, 'sbrown1j', 'sB1@222', 'sophia.brown1j@example.com', 1, 'Sophia', NULL, NULL, NULL),
+(209, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', 1, 'Grace', NULL, NULL, NULL),
+(210, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', 1, 'Oliver', NULL, NULL, NULL),
+(211, 'zthomas1m', 'zT1@555', 'hebertclever@gmail.com', 3, 'Hebert Clever Oliveira', 'Rua Sergipe, 189', '1983-12-24', NULL),
+(212, 'mmiller1n', 'mM1@666', 'mason.miller1n@example.com', 3, 'Mason', NULL, NULL, NULL),
+(213, 'agarcia1o', 'aG1@777', 'ava.garcia1o@example.com', 3, 'Ava', NULL, NULL, NULL),
+(214, 'lwilliamson1p', 'lW1@888', 'liam.williamson1p@example.com', 3, 'Liam', NULL, NULL, NULL),
+(215, 'nrobertson1q', 'nR1@999', 'noah.robertson1q@example.com', 3, 'Noah', NULL, NULL, NULL),
+(216, 'ejenkins1r', 'eJ1@aaa', 'ella.jenkins1r@example.com', 3, 'Ella', NULL, NULL, NULL),
+(217, 'jcooper1s', 'jC1@bbb', 'james.cooper1s@example.com', 3, 'James', NULL, NULL, NULL),
+(218, 'lwright1t', 'lW1@ccc', 'lily.wright1t@example.com', 3, 'Lily', NULL, NULL, NULL),
+(219, 'oharris1u', 'oH1@ddd', 'oscar.harris1u@example.com', 3, 'Oscar', NULL, NULL, NULL),
+(220, 'ithompson1v', 'iT1@eee', 'isabella.thompson1v@example.com', 3, 'Isabella', NULL, NULL, NULL),
+(221, 'sjackson1w', 'sJ1@fff', 'sophie.jackson1w@example.com', 3, 'Sophie', NULL, NULL, NULL),
+(222, 'ecollins1x', 'eC1@ggg', 'ethan.collins1x@example.com', 3, 'Ethan', NULL, NULL, NULL),
+(223, 'ocarter1y', 'oC1@hhh', 'olivia.carter1y@example.com', 3, 'Olivia', NULL, NULL, NULL),
+(224, 'mhall1z', 'mH1@iii', 'mia.hall1z@example.com', 3, 'Mia', NULL, NULL, NULL),
+(225, 'nwalker20', 'nW1@jjj', 'nathan.walker20@example.com', 3, 'Nathan', NULL, NULL, NULL),
+(226, 'ecampbell21', 'eC1@kkk', 'emma.campbell21@example.com', 3, 'Emma', NULL, NULL, NULL),
+(227, 'lroberts22', 'lR1@lll', 'logan.roberts22@example.com', 3, 'Logan', NULL, NULL, NULL),
+(228, 'eedwards23', 'eE1@mmm', 'eva.edwards23@example.com', 3, 'Eva', NULL, NULL, NULL),
+(229, 'lphillips24', 'lP1@nnn', 'lucy.phillips24@example.com', 3, 'Lucy', NULL, NULL, NULL),
+(230, 'ascott25', 'aS1@ooo', 'aiden.scott25@example.com', 3, 'Aiden', NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -417,8 +466,8 @@ ALTER TABLE `teachers`
 -- Índices de tabela `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`),
-  ADD KEY `RoleID` (`RoleID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `RoleID` (`roleId`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -464,7 +513,7 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- Restrições para tabelas despejadas
@@ -474,7 +523,7 @@ ALTER TABLE `users`
 -- Restrições para tabelas `adminlogs`
 --
 ALTER TABLE `adminlogs`
-  ADD CONSTRAINT `adminlogs_ibfk_1` FOREIGN KEY (`AdminID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `adminlogs_ibfk_1` FOREIGN KEY (`AdminID`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `attendance`
@@ -513,26 +562,26 @@ ALTER TABLE `materials`
 -- Restrições para tabelas `messages`
 --
 ALTER TABLE `messages`
-  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`SenderID`) REFERENCES `users` (`UserID`),
-  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`ReceiverID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`SenderID`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`ReceiverID`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `reports`
 --
 ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`GeneratedBy`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`GeneratedBy`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `students`
 --
 ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `teachers`
 --
 ALTER TABLE `teachers`
-  ADD CONSTRAINT `teachers_ibfk_1` FOREIGN KEY (`TeacherID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `teachers_ibfk_1` FOREIGN KEY (`TeacherID`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `users`

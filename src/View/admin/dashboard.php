@@ -83,11 +83,11 @@ $students = $adminController->getAllStudents();
                 foreach ($students as $student) { ?>
                     <tr class="border-none">
                         <td class="py-2 px-4 border"><?= $count++; ?></td>
-                        <td class="py-2 px-4 border"><?= $student["name"]; ?></td>
+                        <td class="py-2 px-4 border"><?= $student["id"]; ?></td>
                         <td class="py-2 px-4 border"><?= $student["name"]; ?></td>
                         <td class="py-2 px-4 border"><?= $student["email"]; ?></td>
-                        <td class="py-2 px-4 border"><?= $student["username"]; ?></td>
-                        <td class="py-2 px-4 border"><?= $student["id"]; ?></td>
+                        <td class="py-2 px-4 border"><?= $student["address"]; ?></td>
+                        <td class="py-2 px-4 border"><?= $student["birthday"]; ?></td>
                         <td class="py-2 px-4 border">
                             echo '<a href="../student/editStudent.php?id=' . $student['id'] . '"><img src="/assets/user-edit.svg" alt="Editar"></a>';
                             <a href="deleteStudent.php?id=<?= $student['id'] ?>"><img src="/assets/trash-02.svg" alt="Deletar"></a>

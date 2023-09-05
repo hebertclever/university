@@ -1,47 +1,4 @@
 <?php
-require_once __DIR__ . '/../../Controller/StudentController.php'; 
-
-$studentController = new StudentController();  
-$students = $studentController->getAllStudents();
-
-//var_dump($students);
-
-$studentIds = array_column($students, 'id');
-$student = null;
-
-var_dump($_GET['id']);  
-var_dump((int)$_GET['id']); 
-
-if (isset($_GET['id']) && in_array((int)$_GET['id'], $studentIds, true)) {
-    $studentId = (int)$_GET['id']; 
-    
-    foreach ($students as $stu) {
-        if ($stu['id'] == $studentId) {
-            $student = $stu;
-            break;
-        }
-    }
-} else {
-    echo "ID do estudante inválido ou não fornecido";
-    exit;
-}
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $birthday = $_POST['birthday'];
-    // $photo = '';  
-
-    $result = $studentController->updateStudent($id = null, $name, $email, $address, $birthday);
-
-    if ($result) {
-        echo "Atualizado com sucesso!";
-    } else {
-        echo "Falha na atualização";
-    }
-}
 
 ?>
 

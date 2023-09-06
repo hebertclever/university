@@ -2,7 +2,7 @@
 //src/View/admin/dashboard.php
 require_once '../../Controller/AdminController.php';
 require_once '../../Controller/StudentController.php';
-require_once '../../View/student/editStudent.php';
+
 
 
 
@@ -89,9 +89,11 @@ $students = $adminController->getAllStudents();
                         <td class="py-2 px-4 border"><?= $student["address"]; ?></td>
                         <td class="py-2 px-4 border"><?= $student["birthday"]; ?></td>
                         <td class="py-2 px-4 border">
-                            echo '<a href="../student/editStudent.php?id=' . $student['id'] . '"><img src="/assets/user-edit.svg" alt="Editar"></a>';
+                            <a href="admin_dashboard.php?id=<?= $student['id'] ?>"><img src="/assets/user-edit.svg" alt="Editar"></a>
                             <a href="deleteStudent.php?id=<?= $student['id'] ?>"><img src="/assets/trash-02.svg" alt="Deletar"></a>
                         </td>
+
+
 
                     </tr>
                 <?php } ?>
@@ -104,6 +106,11 @@ $students = $adminController->getAllStudents();
                 </li>
             <?php endfor; ?>
         </ul>
+    </div>
+    <div>
+        <?php
+        require_once '../../View/student/editStudent.php';
+        ?>
     </div>
 
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/09/2023 às 21:02
+-- Tempo de geração: 07/09/2023 às 20:17
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -246,24 +246,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `address`, `birthday`, `photo`) VALUES
-(101, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
 (102, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
 (103, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
 (104, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
 (105, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
 (106, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
-(107, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
 (108, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
 (109, 'mwoltering8', 'jM1.S`r<', 'mbolens8@usnews.com', NULL, 'Minta', NULL, NULL, NULL),
 (110, 'rgresty9', 'yK9\"J/mH~m(PXMV', 'rkunrad9@moonfruit.com', NULL, 'Rube', NULL, NULL, NULL),
 (111, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
 (112, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
-(113, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
 (114, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
 (115, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
 (116, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
 (117, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
-(118, 'gbrownsworthh', 'sQ9#xbvY', 'ghunsworthh@biblegateway.com', NULL, 'Georgy', NULL, NULL, NULL),
 (119, 'dbolwelli', 'sR9`r~tic}', 'dattlei@free.fr', NULL, 'Dorie', NULL, NULL, NULL),
 (120, 'dyuranovevj', 'kS2\"A)P{vwC%9e', 'dtotterdillj@skyrock.com', NULL, 'Davina', NULL, NULL, NULL),
 (121, 'mdunbabink', 'qR1/94EsL,', 'mcopseyk@google.ca', NULL, 'Mimi', NULL, NULL, NULL),
@@ -357,12 +353,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (209, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', 1, 'Grace', NULL, NULL, NULL),
 (210, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', 1, 'Oliver', NULL, NULL, NULL),
 (211, 'zthomas1m', 'zT1@555', 'hebertclever@gmail.com', 3, 'Hebert Clever Oliveira', 'Rua Sergipe, 189', '1983-12-24', NULL),
-(212, 'mmiller1n', 'mM1@666', 'mason.miller1n@example.com', 3, 'Mason', NULL, NULL, NULL),
-(213, 'agarcia1o', 'aG1@777', 'ava.garcia1o@example.com', 3, 'Ava', NULL, NULL, NULL),
+(212, 'mmiller1n', 'mM1@666', 'mason.oliveira@example.com', 3, 'Mason Oliveira', 'R. Bahia,189', '1998-06-12', 'portrait-photo-2022-11-17-09-21-58-utc.jpg'),
+(213, 'agarcia1o', 'aG1@777', 'ava.garcia1o@example.com', 3, 'Ava Garcia', 'Rua Europa, 159', '2002-02-09', 'the-young-woman-post-in-the-city-for-photo-2021-12-09-05-59-19-utc.jpg'),
 (214, 'lwilliamson1p', 'lW1@888', 'liam.williamson1p@example.com', 3, 'Liam', NULL, NULL, NULL),
 (215, 'nrobertson1q', 'nR1@999', 'noah.robertson1q@example.com', 3, 'Noah', NULL, NULL, NULL),
 (216, 'ejenkins1r', 'eJ1@aaa', 'ella.jenkins1r@example.com', 3, 'Ella', NULL, NULL, NULL),
-(217, 'jcooper1s', 'jC1@bbb', 'james.cooper1s@example.com', 3, 'James', NULL, NULL, NULL),
+(217, 'jcooper1s', 'jC1@bbb', 'eyplan10@gmail.com', 3, 'João de Oliveira', 'Rua sergipe, 189', '1959-05-12', 'close-up-photo-portrait-of-successful-serious-and-2022-12-08-04-03-12-utc.jpg'),
 (218, 'lwright1t', 'lW1@ccc', 'lily.wright1t@example.com', 3, 'Lily', NULL, NULL, NULL),
 (219, 'oharris1u', 'oH1@ddd', 'oscar.harris1u@example.com', 3, 'Oscar', NULL, NULL, NULL),
 (220, 'ithompson1v', 'iT1@eee', 'isabella.thompson1v@example.com', 3, 'Isabella', NULL, NULL, NULL),
@@ -375,7 +371,24 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (227, 'lroberts22', 'lR1@lll', 'logan.roberts22@example.com', 3, 'Logan', NULL, NULL, NULL),
 (228, 'eedwards23', 'eE1@mmm', 'eva.edwards23@example.com', 3, 'Eva', NULL, NULL, NULL),
 (229, 'lphillips24', 'lP1@nnn', 'lucy.phillips24@example.com', 3, 'Lucy', NULL, NULL, NULL),
-(230, 'ascott25', 'aS1@ooo', 'aiden.scott25@example.com', 3, 'Aiden', NULL, NULL, NULL);
+(230, 'ascott25', 'aS1@ooo', 'maria-costa@example.com', 3, 'Maria Costa', 'R.Bahia,26', '1996-06-25', NULL),
+(231, '', '$2y$10$uZDhcPlL2/739m.TIOIbKuGrg/YyOlu36Lsit5py6be', 'kely@io.com', NULL, 'Angela Maria do Carmo', NULL, NULL, NULL),
+(232, '', '$2y$10$1PU33EP80.iTWfjYOp5Sb.X0BNSi6KWPwoSWhhXqF2c', 'angela@angela.com', NULL, 'Angela Maria do Carmo', NULL, NULL, NULL),
+(233, '', '$2y$10$oGsyIzeeee4WaEacG2XcAe0lQF5xTPz5zJ/rbCEFJ5j', 'mason@io.com', NULL, 'Mason Oliveira', NULL, NULL, NULL),
+(234, '', '$2y$10$xFyEyCciwuHpw0R57jYj6e0cQ8/Ww.EHu8hF2DuJYMq', 'roberto@roberto.com', NULL, 'Roberto Gomes', NULL, NULL, NULL),
+(235, '', '$2y$10$kIOR6SA2/7PsnmDHKzx1p.n93Gszs9ltxk6WHxzbca/', 'talita@talita.com', NULL, NULL, NULL, NULL, NULL),
+(236, '', '$2y$10$oxNTvyFDjxwb2GF9Oq5qM.MSGEXuO1u7etNK1az2aAV', NULL, NULL, NULL, NULL, NULL, NULL),
+(237, '', '$2y$10$CxZiQ4SimXd8goE/rz2bu.j7p6PMBvuwz2KH2pr9Fr7', NULL, NULL, NULL, NULL, NULL, NULL),
+(238, '', '$2y$10$p5GLu35xYXVqMK6x.UzETO/AWYWLiEX1AbGq3.luxcW', NULL, NULL, NULL, NULL, NULL, NULL),
+(239, '', '$2y$10$Qrzt7h3YSraXXpJN2NRicukTpEW8ck.8oDqNi4QJg7X', NULL, NULL, NULL, NULL, NULL, NULL),
+(240, '', '$2y$10$xzpybUh47hvjGwvGfC3pV.fUQQkp1rEeXCHzP0rBJ/V', NULL, NULL, NULL, NULL, NULL, NULL),
+(241, '', '$2y$10$Q62JReegiNHRTW/6EsJhZeNRVTmAcddmfM6gr4BiNzY', NULL, NULL, NULL, NULL, NULL, NULL),
+(242, '', '$2y$10$DlCvGTJJmfcRAF4ON3UmHeuyY7Nf0Y61S6MJr0n9DKp', NULL, NULL, NULL, NULL, NULL, NULL),
+(243, '', '$2y$10$wF2iY8jNU0YHVRs1B4a4ouNBxLmHelDaRPhdBwI581v', NULL, NULL, NULL, NULL, NULL, NULL),
+(244, '', '$2y$10$o6/OWAUG6KY18QrJ4bNPmutBPLEDMGLzNjFQfxD3CAY', NULL, NULL, NULL, NULL, NULL, NULL),
+(245, '', '$2y$10$yKW5RHu8RbDjM93M47.iDe2fBsXKhE1hsokXRoq4sAh', NULL, NULL, NULL, NULL, NULL, NULL),
+(246, '', '$2y$10$IPnsvVIpNu4qcmHTWFl52eEHIR2Fgo3m4FtnqmPI1yH', NULL, NULL, NULL, NULL, NULL, NULL),
+(247, '', '$2y$10$ftKx.s/hCyiWRV2/7XSTr.YUDwqkWCkfEFY5xLGdeBo', 'robertofeitosa@io.com', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -513,7 +526,7 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
 -- Restrições para tabelas despejadas

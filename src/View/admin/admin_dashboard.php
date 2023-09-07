@@ -112,9 +112,6 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
 
 
 
-
-
-
         <div class="mb-4" style="text-align: right;">
             <div class="inline-block mr-4">
                 <select id="userTypeFilter" class="bg-white border rounded-md p-2 shadow">

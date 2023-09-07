@@ -11,19 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($auth->loginUser($email, $password)) {
 
         
-        if ($userType == 'Admin') {
-            header('Location: ../View/admin/admin_dashboard.php');
-            exit;
-        } elseif ($userType == 'Teacher') {
-            header('Location: ../View/admin/admin_dashboard.php');
-            exit;
-        } else {           
-            header('Location: general_dashboard.php');
-            exit;
-        }
-
-
-        header("Location: ../View/admin/admin_dashboard.php");
+               header("Location: ../View/admin/admin_dashboard.php");
         exit();
     } else {
         $error = "Usuário ou senha inválidos";

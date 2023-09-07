@@ -90,10 +90,6 @@ class AdminController extends UserController
     }
   }
 
-
-
-
-
   public function deleteUsers($id)
 {
     try {

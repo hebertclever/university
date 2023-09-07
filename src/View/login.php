@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="/dist/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-200 h-screen flex justify-center items-center">
+<body class="bg-gray-200 h-screen flex flex-col justify-center items-center">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-2xl font-semibold mb-4">Login</h1>
         <form action="login.php" method="post">
@@ -53,7 +53,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p>Don't have an account? <a href="register.php" class="text-blue-500">Register Now</a></p>
             </div>
         </form>
+        <div class="text-left mt-10">
+        <div class="mb-4">
+            <p class="text-gray-500">Admin: robertofeitosa@io.com</p>
+            <p class="text-gray-500 mt-1">senha: 1234</p>
+        </div>
+        <div>
+            <p class="text-gray-500">Teacher: john.smith1d@example.com</p>
+            <p class="text-gray-500 mt-1">senha: 1234</p>
+        </div>
     </div>
+        
+    </div>
+    
+
+
 </body>
 
 

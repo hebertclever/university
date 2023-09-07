@@ -59,6 +59,11 @@ $student = $studentController->getUserById($studentId);
 </head>
 
 <body class="bg-gray-100 flex items-center">
+    <nav>
+        <?php include '../../View/components/sidebar.php'; ?>
+    </nav>
+
+    <h2 class="text-3xl font-bold mb-4">Edit <?php echo getUserTypeName($userType); ?> Profile</h2>
 
     <div class="container mx-auto flex p-6">
 

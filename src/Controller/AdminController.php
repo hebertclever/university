@@ -7,7 +7,7 @@ class AdminController extends UserController
   {
     try {
       $db = $this->connectDB();
-      $query = $db->query("SELECT * FROM users WHERE roleId = 1"); 
+      $query = $db->query("SELECT * FROM users WHERE roleId = 1");
       return $query->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
       die('Erro: ' . $e->getMessage());
@@ -36,11 +36,20 @@ class AdminController extends UserController
     }
   }
 
-  public function getAllUsers()
+  public function getAllUsers($userType = 'all')
   {
     try {
       $db = $this->connectDB();
-      $query = $db->query("SELECT COUNT(*) as count FROM users");
+
+      if ($userType === 'all') {
+        $query = $db->query("SELECT COUNT(*) as count FROM users");
+      } else {
+        $stmt = $db->prepare("SELECT COUNT(*) as count FROM users WHERE roleId = :userType");
+        $stmt->bindParam(':userType', $userType, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+      }
+
       $result = $query->fetch(PDO::FETCH_ASSOC);
       return $result['count'];
     } catch (Exception $e) {
@@ -48,13 +57,30 @@ class AdminController extends UserController
     }
   }
 
-  public function getUsersByPage($page, $resultsPerPage = 15)
+
+  public function getUsersByPage($page, $userType = 'all', $resultsPerPage = 10, $searchTerm = '')
   {
     $start = ($page - 1) * $resultsPerPage;
-
     try {
       $db = $this->connectDB();
-      $query = $db->prepare("SELECT * FROM users LIMIT :start, :limit");
+
+      $userTypeCondition = '';
+      if ($userType != 'all') {
+        $userTypeCondition = ' AND roleId = :userType ';
+      }
+
+      if ($searchTerm) {
+        $searchTerm = '%' . $searchTerm . '%';
+        $query = $db->prepare("SELECT * FROM users WHERE name LIKE :searchTerm $userTypeCondition LIMIT :start, :limit");
+        $query->bindParam(':searchTerm', $searchTerm, PDO::PARAM_STR);
+      } else {
+        $query = $db->prepare("SELECT * FROM users WHERE 1 = 1 $userTypeCondition LIMIT :start, :limit");
+      }
+
+      if ($userType != 'all') {
+        $query->bindParam(':userType', $userType, PDO::PARAM_STR);
+      }
+
       $query->bindParam(':start', $start, PDO::PARAM_INT);
       $query->bindParam(':limit', $resultsPerPage, PDO::PARAM_INT);
       $query->execute();
@@ -63,6 +89,8 @@ class AdminController extends UserController
       die('Erro: ' . $e->getMessage());
     }
   }
+
+
 
 
 

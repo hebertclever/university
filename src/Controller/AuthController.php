@@ -43,7 +43,7 @@ class AuthController
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-      var_dump($user['password']);  // Isso vai exibir o hash da senha armazenado no banco de dados para esse email
+      var_dump($user['password']);  
 
       if (password_verify($password, $user['password'])) {
         session_start();

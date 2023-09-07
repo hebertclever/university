@@ -52,6 +52,8 @@
                             <p class="sidebar-hideable">Dashboard</p>
                         </a>
                     </li>
+
+                   
                     <li class="relative text-gray-500 hover:text-white focus-within:text-white">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-2  pointer-events-none">
                             <svg class="icons" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +76,8 @@
                             <p class="sidebar-hideable">Teachers</p>
                         </a>
                     </li>
+
+                    
                     <li class="relative text-gray-500 hover:text-white focus-within:text-white">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-2  pointer-events-none">
                             <svg class="icons" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,6 +88,9 @@
                             <p class="sidebar-hideable">Students</p>
                         </a>
                     </li>
+                    
+
+
                     <li class="relative text-gray-500 hover:text-white focus-within:text-white">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-2  pointer-events-none">
                             <svg class="icons" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,6 +101,7 @@
                             <p class="sidebar-hideable">Classes</p>
                         </a>
                     </li>
+                    
                     <li class="relative text-gray-500 hover:text-white focus-within:text-white">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-2  pointer-events-none">
                             <svg class="icons" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">

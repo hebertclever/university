@@ -9,6 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($auth->loginUser($email, $password)) {
+
+        
+        if ($userType == 'Admin') {
+            header('Location: ../View/admin/admin_dashboard.php');
+            exit;
+        } elseif ($userType == 'Teacher') {
+            header('Location: ../View/admin/admin_dashboard.php');
+            exit;
+        } else {           
+            header('Location: general_dashboard.php');
+            exit;
+        }
+
+
         header("Location: ../View/admin/admin_dashboard.php");
         exit();
     } else {
@@ -54,18 +68,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </form>
         <div class="text-left mt-10">
-        <div class="mb-4">
-            <p class="text-gray-500">Admin: robertofeitosa@io.com</p>
-            <p class="text-gray-500 mt-1">senha: 1234</p>
+            <div class="mb-4">
+                <p class="text-gray-500">Admin: robertofeitosa@io.com</p>
+                <p class="text-gray-500 mt-1">senha: 1234</p>
+            </div>
+            <div>
+                <p class="text-gray-500">Teacher: john.smith1d@example.com</p>
+                <p class="text-gray-500 mt-1">senha: 1234</p>
+            </div>
         </div>
-        <div>
-            <p class="text-gray-500">Teacher: john.smith1d@example.com</p>
-            <p class="text-gray-500 mt-1">senha: 1234</p>
-        </div>
+
     </div>
-        
-    </div>
-    
+
 
 
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/09/2023 às 20:17
+-- Tempo de geração: 07/09/2023 às 21:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -20,208 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `university-hebert`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `adminlogs`
---
-
-CREATE TABLE `adminlogs` (
-  `LogID` int(11) NOT NULL,
-  `AdminID` int(11) DEFAULT NULL,
-  `Action` varchar(100) DEFAULT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `attendance`
---
-
-CREATE TABLE `attendance` (
-  `StudentID` int(11) NOT NULL,
-  `CourseID` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `Status` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `coursecategories`
---
-
-CREATE TABLE `coursecategories` (
-  `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(100) NOT NULL,
-  `Description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `courses`
---
-
-CREATE TABLE `courses` (
-  `CourseID` int(11) NOT NULL,
-  `CourseName` varchar(100) NOT NULL,
-  `StartDate` date DEFAULT NULL,
-  `EndDate` date DEFAULT NULL,
-  `CategoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `courses`
---
-
-INSERT INTO `courses` (`CourseID`, `CourseName`, `StartDate`, `EndDate`, `CategoryID`) VALUES
-(1, 'Introdução à Programação', '2023-09-01', '2023-12-15', NULL),
-(2, 'Desenvolvimento Web', '2023-09-01', '2023-12-15', NULL),
-(3, 'Banco de Dados', '2023-09-01', '2023-12-15', NULL),
-(4, 'Estruturas de Dados', '2023-01-10', '2023-05-15', NULL),
-(5, 'Algoritmos Avançados', '2023-01-10', '2023-05-15', NULL),
-(6, 'Redes de Computadores', '2023-01-10', '2023-05-15', NULL),
-(7, 'Segurança da Informação', '2023-09-01', '2023-12-15', NULL),
-(8, 'Engenharia de Software', '2023-01-10', '2023-05-15', NULL),
-(9, 'Machine Learning', '2023-09-01', '2023-12-15', NULL),
-(10, 'Inteligência Artificial', '2023-09-01', '2023-12-15', NULL),
-(11, 'Design Gráfico', '2023-09-01', '2023-12-15', NULL),
-(12, 'UI/UX Design', '2023-09-01', '2023-12-15', NULL),
-(13, 'Animação Digital', '2023-01-10', '2023-05-15', NULL),
-(14, 'Web Design', '2023-01-10', '2023-05-15', NULL),
-(15, 'Design de Produto', '2023-09-01', '2023-12-15', NULL),
-(16, 'Gestão de Produto', '2023-09-01', '2023-12-15', NULL),
-(17, 'Desenvolvimento de Produto', '2023-09-01', '2023-12-15', NULL),
-(18, 'Design Thinking para Produtos', '2023-01-10', '2023-05-15', NULL),
-(19, 'Prototipagem de Produto', '2023-01-10', '2023-05-15', NULL),
-(20, 'Introdução ao Marketing de Produto', '2023-09-01', '2023-12-15', NULL),
-(21, 'Marketing Digital', '2023-09-01', '2023-12-15', NULL),
-(22, 'SEO e SEM para Negócios', '2023-09-01', '2023-12-15', NULL),
-(23, 'Gestão de Mídias Sociais', '2023-01-10', '2023-05-15', NULL),
-(24, 'Estratégias de Marketing de Conteúdo', '2023-01-10', '2023-05-15', NULL),
-(25, 'Branding e Gestão de Marca', '2023-09-01', '2023-12-15', NULL);
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `course_student`
---
-
-CREATE TABLE `course_student` (
-  `CourseID` int(11) NOT NULL,
-  `StudentID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `course_teacher`
---
--- Erro ao ler a estrutura para a tabela university-hebert.course_teacher: #1932 - Table &#039;university-hebert.course_teacher&#039; doesn&#039;t exist in engine
--- Erro ao ler dados para tabela university-hebert.course_teacher: #1064 - Você tem um erro de sintaxe no seu SQL próximo a &#039;FROM `university-hebert`.`course_teacher`&#039; na linha 1
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `grades`
---
-
-CREATE TABLE `grades` (
-  `StudentID` int(11) NOT NULL,
-  `CourseID` int(11) NOT NULL,
-  `Grade` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `materials`
---
-
-CREATE TABLE `materials` (
-  `MaterialID` int(11) NOT NULL,
-  `CourseID` int(11) DEFAULT NULL,
-  `MaterialName` varchar(100) DEFAULT NULL,
-  `MaterialType` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `messages`
---
-
-CREATE TABLE `messages` (
-  `MessageID` int(11) NOT NULL,
-  `SenderID` int(11) DEFAULT NULL,
-  `ReceiverID` int(11) DEFAULT NULL,
-  `MessageText` text DEFAULT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `reports`
---
-
-CREATE TABLE `reports` (
-  `ReportID` int(11) NOT NULL,
-  `GeneratedBy` int(11) DEFAULT NULL,
-  `Timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ReportType` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `roles`
---
-
-CREATE TABLE `roles` (
-  `RoleID` int(11) NOT NULL,
-  `RoleName` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `roles`
---
-
-INSERT INTO `roles` (`RoleID`, `RoleName`) VALUES
-(1, 'Admin'),
-(2, 'Teacher'),
-(3, 'Student');
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `students`
---
-
-CREATE TABLE `students` (
-  `StudentID` int(11) NOT NULL,
-  `GradeLevel` varchar(50) DEFAULT NULL,
-  `Major` varchar(50) DEFAULT NULL,
-  `DNI` varchar(20) DEFAULT NULL,
-  `Phone` varchar(20) DEFAULT NULL,
-  `Address` text DEFAULT NULL,
-  `Birthday` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `teachers`
---
-
-CREATE TABLE `teachers` (
-  `TeacherID` int(11) NOT NULL,
-  `Qualifications` text DEFAULT NULL,
-  `SubjectsTaught` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -246,7 +44,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `address`, `birthday`, `photo`) VALUES
-(102, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
 (103, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
 (104, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
 (105, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
@@ -323,13 +120,13 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (179, 'dlinebarger1a', 'iT0|S6\Z0', 'dmattke1a@merriam-webster.com', NULL, 'Dorene', NULL, NULL, NULL),
 (180, 'adurbridge1b', 'wB3*$f+j\'cmJ|c', 'adagostino1b@youtu.be', NULL, 'Aridatha', NULL, NULL, NULL),
 (181, 'jdoe1c', 'jD1@abc', 'jane.doe1c@example.com', NULL, 'Jane', NULL, NULL, NULL),
-(182, 'jsmith1d', 'jS1@xyz', 'john.smith1d@example.com', NULL, 'John', NULL, NULL, NULL),
+(182, 'jsmith1d', '$2y$10$nRYdcIa7aq6glXdw.QDP1.NW.asvVx1qD60Vzym3R7Z', 'john.smith1d@example.com', NULL, 'John', NULL, NULL, NULL),
 (183, 'ewatson1e', 'eW1@123', 'emily.watson1e@example.com', NULL, 'Emily', NULL, NULL, NULL),
 (184, 'rjohnson1f', 'rJ1@456', 'robert.johnson1f@example.com', NULL, 'Robert', NULL, NULL, NULL),
 (185, 'sconnor1g', 'sC1@789', 'sara.connor1g@example.com', NULL, 'Sara', NULL, NULL, NULL),
 (186, 'mjordan1h', 'mJ1@000', 'michael.jordan1h@example.com', NULL, 'Michael', NULL, NULL, NULL),
 (187, 'lsmith1i', 'lS1@111', 'lucas.smith1i@example.com', NULL, 'Lucas', NULL, NULL, NULL),
-(188, 'sbrown1j', 'sB1@222', 'sophia.brown1j@example.com', NULL, 'Sophia', NULL, NULL, NULL),
+(188, 'sbrown1j', '$2y$10$00MEOOZqP7c.jSdXgR9h.OJtQYMbYPR2zydHe4/YBrl', 'sophia.brown1j@example.com', NULL, 'Sophia', NULL, NULL, NULL),
 (189, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', NULL, 'Grace', NULL, NULL, NULL),
 (190, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', NULL, 'Oliver', NULL, NULL, NULL),
 (191, 'zthomas1m', 'zT1@555', 'zoe.thomas1m@example.com', NULL, 'Zoe', NULL, NULL, NULL),
@@ -343,13 +140,13 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (199, 'oharris1u', 'oH1@ddd', 'oscar.harris1u@example.com', NULL, 'Oscar', NULL, NULL, NULL),
 (200, 'ithompson1v', 'iT1@eee', 'isabella.thompson1v@example.com', NULL, 'Isabella', NULL, NULL, NULL),
 (201, 'jdoe1c', 'jD1@abc', 'jane.doe1c@example.com', 2, 'Jane', NULL, NULL, NULL),
-(202, 'jsmith1d', 'jS1@xyz', 'john.smith1d@example.com', 2, 'John', NULL, NULL, NULL),
+(202, 'jsmith1d', '$2y$10$nRYdcIa7aq6glXdw.QDP1.NW.asvVx1qD60Vzym3R7Z', 'john.smith1d@example.com', 2, 'John', '', '0000-00-00', 'close-up-photo-portrait-of-successful-serious-and-2022-12-08-04-03-12-utc.jpg'),
 (203, 'ewatson1e', 'eW1@123', 'emily.watson1e@example.com', 2, 'Emily', NULL, NULL, NULL),
 (204, 'rjohnson1f', 'rJ1@456', 'robert.johnson1f@example.com', 2, 'Robert', NULL, NULL, NULL),
 (205, 'sconnor1g', 'sC1@789', 'sara.connor1g@example.com', 2, 'Sara', NULL, NULL, NULL),
 (206, 'mjordan1h', 'mJ1@000', 'michael.jordan1h@example.com', 2, 'Michael', NULL, NULL, NULL),
 (207, 'lsmith1i', 'lS1@111', 'lucas.smith1i@example.com', 2, 'Lucas', NULL, NULL, NULL),
-(208, 'sbrown1j', 'sB1@222', 'sophia.brown1j@example.com', 1, 'Sophia', NULL, NULL, NULL),
+(208, 'sbrown1j', '$2y$10$00MEOOZqP7c.jSdXgR9h.OJtQYMbYPR2zydHe4/YBrl', 'sophia.brown1j@example.com', 1, 'Sophia Oliveira', 'Rua Europa', '1989-06-12', 'portrait-image-of-a-happy-beautiful-asian-woman-ma-2022-12-16-05-14-18-utc.jpg'),
 (209, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', 1, 'Grace', NULL, NULL, NULL),
 (210, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', 1, 'Oliver', NULL, NULL, NULL),
 (211, 'zthomas1m', 'zT1@555', 'hebertclever@gmail.com', 3, 'Hebert Clever Oliveira', 'Rua Sergipe, 189', '1983-12-24', NULL),
@@ -388,92 +185,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (244, '', '$2y$10$o6/OWAUG6KY18QrJ4bNPmutBPLEDMGLzNjFQfxD3CAY', NULL, NULL, NULL, NULL, NULL, NULL),
 (245, '', '$2y$10$yKW5RHu8RbDjM93M47.iDe2fBsXKhE1hsokXRoq4sAh', NULL, NULL, NULL, NULL, NULL, NULL),
 (246, '', '$2y$10$IPnsvVIpNu4qcmHTWFl52eEHIR2Fgo3m4FtnqmPI1yH', NULL, NULL, NULL, NULL, NULL, NULL),
-(247, '', '$2y$10$ftKx.s/hCyiWRV2/7XSTr.YUDwqkWCkfEFY5xLGdeBo', 'robertofeitosa@io.com', NULL, NULL, NULL, NULL, NULL);
+(247, '', '$2y$10$ftKx.s/hCyiWRV2/7XSTr.YUDwqkWCkfEFY5xLGdeBo', 'robertofeitosa@io.com', 1, 'Roberto Feitosa', 'Rua Paraná, 189', NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices de tabela `adminlogs`
---
-ALTER TABLE `adminlogs`
-  ADD PRIMARY KEY (`LogID`),
-  ADD KEY `AdminID` (`AdminID`);
-
---
--- Índices de tabela `attendance`
---
-ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`StudentID`,`CourseID`,`Date`),
-  ADD KEY `CourseID` (`CourseID`);
-
---
--- Índices de tabela `coursecategories`
---
-ALTER TABLE `coursecategories`
-  ADD PRIMARY KEY (`CategoryID`);
-
---
--- Índices de tabela `courses`
---
-ALTER TABLE `courses`
-  ADD PRIMARY KEY (`CourseID`),
-  ADD KEY `CategoryID` (`CategoryID`);
-
---
--- Índices de tabela `course_student`
---
-ALTER TABLE `course_student`
-  ADD PRIMARY KEY (`CourseID`,`StudentID`),
-  ADD KEY `StudentID` (`StudentID`);
-
---
--- Índices de tabela `grades`
---
-ALTER TABLE `grades`
-  ADD PRIMARY KEY (`StudentID`,`CourseID`),
-  ADD KEY `CourseID` (`CourseID`);
-
---
--- Índices de tabela `materials`
---
-ALTER TABLE `materials`
-  ADD PRIMARY KEY (`MaterialID`),
-  ADD KEY `CourseID` (`CourseID`);
-
---
--- Índices de tabela `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`MessageID`),
-  ADD KEY `SenderID` (`SenderID`),
-  ADD KEY `ReceiverID` (`ReceiverID`);
-
---
--- Índices de tabela `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`ReportID`),
-  ADD KEY `GeneratedBy` (`GeneratedBy`);
-
---
--- Índices de tabela `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`RoleID`);
-
---
--- Índices de tabela `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`StudentID`);
-
---
--- Índices de tabela `teachers`
---
-ALTER TABLE `teachers`
-  ADD PRIMARY KEY (`TeacherID`);
 
 --
 -- Índices de tabela `users`
@@ -487,42 +203,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de tabela `adminlogs`
---
-ALTER TABLE `adminlogs`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `coursecategories`
---
-ALTER TABLE `coursecategories`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `courses`
---
-ALTER TABLE `courses`
-  MODIFY `CourseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT de tabela `materials`
---
-ALTER TABLE `materials`
-  MODIFY `MaterialID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `messages`
---
-ALTER TABLE `messages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `reports`
---
-ALTER TABLE `reports`
-  MODIFY `ReportID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
@@ -531,70 +211,6 @@ ALTER TABLE `users`
 --
 -- Restrições para tabelas despejadas
 --
-
---
--- Restrições para tabelas `adminlogs`
---
-ALTER TABLE `adminlogs`
-  ADD CONSTRAINT `adminlogs_ibfk_1` FOREIGN KEY (`AdminID`) REFERENCES `users` (`id`);
-
---
--- Restrições para tabelas `attendance`
---
-ALTER TABLE `attendance`
-  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
-
---
--- Restrições para tabelas `courses`
---
-ALTER TABLE `courses`
-  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `coursecategories` (`CategoryID`);
-
---
--- Restrições para tabelas `course_student`
---
-ALTER TABLE `course_student`
-  ADD CONSTRAINT `course_student_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`),
-  ADD CONSTRAINT `course_student_ibfk_2` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`);
-
---
--- Restrições para tabelas `grades`
---
-ALTER TABLE `grades`
-  ADD CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
-
---
--- Restrições para tabelas `materials`
---
-ALTER TABLE `materials`
-  ADD CONSTRAINT `materials_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
-
---
--- Restrições para tabelas `messages`
---
-ALTER TABLE `messages`
-  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`SenderID`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`ReceiverID`) REFERENCES `users` (`id`);
-
---
--- Restrições para tabelas `reports`
---
-ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`GeneratedBy`) REFERENCES `users` (`id`);
-
---
--- Restrições para tabelas `students`
---
-ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `users` (`id`);
-
---
--- Restrições para tabelas `teachers`
---
-ALTER TABLE `teachers`
-  ADD CONSTRAINT `teachers_ibfk_1` FOREIGN KEY (`TeacherID`) REFERENCES `users` (`id`);
 
 --
 -- Restrições para tabelas `users`

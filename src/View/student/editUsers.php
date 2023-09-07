@@ -1,6 +1,24 @@
 <?php
 require_once __DIR__ . '/../../Controller/StudentController.php';
 require_once __DIR__ . '/../../Controller/FileUpload.php';
+require_once __DIR__ . '/../../Controller/AuthController.php';
+
+
+$authController = new AuthController();
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['new_password'])) {
+    $email = $_POST['email'];
+    $newPassword = $_POST['new_password'];
+    $result = $authController->changePassword($email, $newPassword);
+
+    if ($result === true) {
+        $message = "Senha atualizada com sucesso!";
+    } else {
+        $message = $result;
+    }
+}
 
 
 
@@ -56,16 +74,27 @@ $student = $studentController->getUserById($studentId);
     <meta charset="UTF-8">
     <title>Edit Student</title>
     <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
-<body class="bg-gray-100 flex items-center">
+<body class="bg-gray-100 flex  items-center">
     <nav>
         <?php include '../../View/components/sidebar.php'; ?>
     </nav>
 
-    <h2 class="text-3xl font-bold mb-4">Edit <?php echo getUserTypeName($userType); ?> Profile</h2>
+
+
 
     <div class="container mx-auto flex p-6">
+        <div class="flex m-7">
+            <a href="../admin/admin_dashboard.php" class="flex items-center hover:text-blue-500">
+                <i class="fas fa-arrow-left mr-2"></i>
+                <h2 class="text-lg font-bold">Back</h2>
+            </a>
+        </div>
+
+
 
         <!-- Student Data Card -->
         <div class="w-1/2 bg-white p-8 rounded-lg shadow-md">
@@ -96,11 +125,16 @@ $student = $studentController->getUserById($studentId);
                 <div class="mb-4">
                     <label for="birthday" class="text-sm font-medium text-gray-600 block">Birthday:</label>
                     <input type="date" id="birthday" name="birthday" value="<?php echo $student['birthday']; ?>" class="w-full p-2 border rounded mt-1">
+                </div>                
+                <div class="mb-4">
+                    <label for="new_password" class="text-sm font-medium text-gray-600 block">Nova Senha:</label>
+                    <input type="password" id="new_password" name="new_password" class="w-full p-2 border rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="photo" class="text-sm font-medium text-gray-600 block">Photo:</label>
                     <input type="file" id="photo" name="photo" class="w-full p-2 border rounded mt-1">
                 </div>
+
                 <div>
                     <input type="submit" value="Update" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 </div>

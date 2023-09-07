@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../Controller/AuthController.php';
 
 $auth = new AuthController();

@@ -28,7 +28,7 @@ class AuthController
     } else {
       return "Houve um erro ao registrar o usuário.";
     }
-    var_dump($passwordHashed);
+    
   }
 
   public function loginUser($email, $password)
@@ -57,4 +57,25 @@ class AuthController
       echo "Usuário não encontrado!";
     }
   }
+
+  public function changePassword($email, $newPassword)
+{
+    $conn = Database::connect();
+
+    
+    $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
+
+   
+    $sql = "UPDATE users SET password = :password WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+    $stmt->bindParam(":password", $passwordHashed, PDO::PARAM_STR);
+
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return "Houve um erro ao atualizar a senha.";
+    }
+}
+
 }

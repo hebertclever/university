@@ -63,10 +63,7 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
         <?php include '../../View/components/sidebar.php'; ?>
     </nav>
 
-    <nav>
-        <?php include '../../View/components/menu.php'; ?>
-
-    </nav>
+   
 
 
     <!-- Students Table -->
@@ -101,7 +98,7 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
                 });
 
                 document.getElementById('searchButton').addEventListener('click', function() {
-                    clearTimeout(searchTimeout); // cancel any pending timeout
+                    clearTimeout(searchTimeout); 
                     updateSearch();
                 });
 
@@ -174,10 +171,10 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
                         <td class="py-2 px-4"><?= $user["address"]; ?></td>
                         <td class="py-2 px-4"><?= $user["birthday"]; ?></td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <a class="edit-button" href="../student/editStudent.php?id=<?= $user['id'] ?>">
+                            <a class="edit-button" href="../student/editUsers.php?id=<?= $user['id'] ?>">
                                 <img src="/assets/user-edit.svg" alt="Editar">
                             </a>
-                            <a href="deleteStudent.php?id=<?= $user['id'] ?>">
+                            <a href="../../Controller/actions/deleteUsers.php?id=<?= $user['id'] ?>">
                                 <img src="/assets/trash-02.svg" alt="Deletar">
                             </a>
                         </td>
@@ -208,11 +205,7 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
 
     </div>
     </div>
-    <div>
-        <?php
-        include '../../View/student/editStudent.php'
-        ?>
-    </div>
+   
 
 </body>
 

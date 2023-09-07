@@ -94,18 +94,18 @@ class AdminController extends UserController
 
 
 
-  public function deleteStudent($id)
-  {
+  public function deleteUsers($id)
+{
     try {
-      $db = $this->connectDB();
-      $query = $db->query("DELETE FROM users WHERE id = $id");
-    } catch (Exception $e) {
-      die('Erro: ' . $e->getMessage());
-    }
-  }
-  public function getAdminName()
-  {
+        $db = $this->connectDB();
+        $stmt = $db->prepare("DELETE FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
-    return "SeuNome";
-  }
+        return true;  // Retorna verdadeiro se a operação foi bem-sucedida
+    } catch (Exception $e) {
+        return false; // Retorna falso em caso de erro
+    }
+}
+
 }

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $result = $auth->registerUser($email, $password);
     if ($result === true) {
-        header('Location: personal_info.php');
+        header('Location: ../../index.php');
     } else {
         $error = $result; // "E-mail já existe."
     }

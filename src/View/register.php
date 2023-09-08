@@ -6,7 +6,7 @@ require_once __DIR__ . '../../Model/registerAction.php';
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <link href="/dist/output.css" rel="stylesheet">
 </head>
 

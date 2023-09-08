@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '../../Model/loginAction.php';
 ?>
 
@@ -9,6 +10,8 @@ require_once __DIR__ . '../../Model/loginAction.php';
     <title>Login</title>
     <link href="/dist/output.css" rel="stylesheet">
 </head>
+
+
 
 <body class="bg-gray-200 h-screen flex flex-col justify-center items-center">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">

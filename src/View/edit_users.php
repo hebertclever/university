@@ -21,7 +21,7 @@ require_once __DIR__ . '/../Model/editUsersAction.php';
 
     <div class="container mx-auto flex p-6">
         <div class="flex m-7">
-            <a href="../../index.php" class="flex items-center hover:text-blue-500">
+            <a href="/src/view/users_list.php" class="flex items-center hover:text-blue-500">
                 <i class="fas fa-arrow-left mr-2"></i>
                 <h2 class="text-lg font-bold">Back</h2>
             </a>

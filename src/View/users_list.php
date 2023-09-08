@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . '../../Model/dashboardActions.php'
+require_once __DIR__ . '../../Model/userListActions.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
+    <title>Users Table</title>
     <link href="/dist/output.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d7477d78b2.js" crossorigin="anonymous"></script>
 </head>
@@ -15,7 +15,6 @@ require_once __DIR__ . '../../Model/dashboardActions.php'
     <nav>
         <?php include __DIR__ . '/sidebar.php'; ?>
     </nav>
-
    
 
 
@@ -121,7 +120,7 @@ require_once __DIR__ . '../../Model/dashboardActions.php'
                         <td class="py-2 px-4"><?= $user["address"]; ?></td>
                         <td class="py-2 px-4"><?= $user["birthday"]; ?></td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <a class="edit-button" href="/src/View/editUsers.php?id=<?= $user['id'] ?>">
+                            <a class="edit-button" href="edit_users.php?id=<?= $user['id'] ?>">
                                 <img src="/assets/user-edit.svg" alt="Editar">
                             </a>
                             <a href="/src/Model/deleteUsers.php?id=<?= $user['id'] ?>">

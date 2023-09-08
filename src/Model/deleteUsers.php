@@ -3,6 +3,7 @@ require_once __DIR__ . '/../Controller/AdminController.php';
 
 
 
+
 if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id'])) {
     die("ID não fornecido ou é inválido.");
 }

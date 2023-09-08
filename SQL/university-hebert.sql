@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/09/2023 às 00:09
+-- Tempo de geração: 08/09/2023 às 20:18
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -54,10 +54,22 @@ CREATE TABLE `attendance` (
 --
 
 CREATE TABLE `coursecategories` (
-  `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(100) NOT NULL,
-  `Description` text DEFAULT NULL
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `coursecategories`
+--
+
+INSERT INTO `coursecategories` (`category_id`, `category_name`, `description`) VALUES
+(1, 'frontend', 'Courses related to frontend development, including HTML, CSS, JavaScript and more.'),
+(2, 'backend', 'Courses focused on server-side development, databases, and backend frameworks.'),
+(3, 'ux_ui_designer', 'Courses about user experience and user interface design principles.'),
+(4, 'data_scientist', 'Courses that delve into data analysis, machine learning, and statistical methods.'),
+(5, 'marketing', 'Courses on marketing strategies, digital marketing, and market research.'),
+(6, 'product_managment', 'Courses covering product management, planning, and strategy.');
 
 -- --------------------------------------------------------
 
@@ -66,43 +78,44 @@ CREATE TABLE `coursecategories` (
 --
 
 CREATE TABLE `courses` (
-  `CourseID` int(11) NOT NULL,
-  `CourseName` varchar(100) NOT NULL,
-  `StartDate` date DEFAULT NULL,
-  `EndDate` date DEFAULT NULL,
-  `CategoryID` int(11) DEFAULT NULL
+  `course_id` int(11) NOT NULL,
+  `course_name` varchar(100) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `duration` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `courses`
 --
 
-INSERT INTO `courses` (`CourseID`, `CourseName`, `StartDate`, `EndDate`, `CategoryID`) VALUES
-(1, 'Introdução à Programação', '2023-09-01', '2023-12-15', NULL),
-(2, 'Desenvolvimento Web', '2023-09-01', '2023-12-15', NULL),
-(3, 'Banco de Dados', '2023-09-01', '2023-12-15', NULL),
-(4, 'Estruturas de Dados', '2023-01-10', '2023-05-15', NULL),
-(5, 'Algoritmos Avançados', '2023-01-10', '2023-05-15', NULL),
-(6, 'Redes de Computadores', '2023-01-10', '2023-05-15', NULL),
-(7, 'Segurança da Informação', '2023-09-01', '2023-12-15', NULL),
-(8, 'Engenharia de Software', '2023-01-10', '2023-05-15', NULL),
-(9, 'Machine Learning', '2023-09-01', '2023-12-15', NULL),
-(10, 'Inteligência Artificial', '2023-09-01', '2023-12-15', NULL),
-(11, 'Design Gráfico', '2023-09-01', '2023-12-15', NULL),
-(12, 'UI/UX Design', '2023-09-01', '2023-12-15', NULL),
-(13, 'Animação Digital', '2023-01-10', '2023-05-15', NULL),
-(14, 'Web Design', '2023-01-10', '2023-05-15', NULL),
-(15, 'Design de Produto', '2023-09-01', '2023-12-15', NULL),
-(16, 'Gestão de Produto', '2023-09-01', '2023-12-15', NULL),
-(17, 'Desenvolvimento de Produto', '2023-09-01', '2023-12-15', NULL),
-(18, 'Design Thinking para Produtos', '2023-01-10', '2023-05-15', NULL),
-(19, 'Prototipagem de Produto', '2023-01-10', '2023-05-15', NULL),
-(20, 'Introdução ao Marketing de Produto', '2023-09-01', '2023-12-15', NULL),
-(21, 'Marketing Digital', '2023-09-01', '2023-12-15', NULL),
-(22, 'SEO e SEM para Negócios', '2023-09-01', '2023-12-15', NULL),
-(23, 'Gestão de Mídias Sociais', '2023-01-10', '2023-05-15', NULL),
-(24, 'Estratégias de Marketing de Conteúdo', '2023-01-10', '2023-05-15', NULL),
-(25, 'Branding e Gestão de Marca', '2023-09-01', '2023-12-15', NULL);
+INSERT INTO `courses` (`course_id`, `course_name`, `start_date`, `end_date`, `category_id`, `duration`) VALUES
+(1, 'Introdução à Programação', '2023-09-01', '2023-12-15', NULL, 0),
+(2, 'Desenvolvimento Web', '2023-09-01', '2023-12-15', NULL, 0),
+(3, 'Banco de Dados', '2023-09-01', '2023-12-15', NULL, 0),
+(4, 'Estruturas de Dados', '2023-01-10', '2023-05-15', NULL, 0),
+(5, 'Algoritmos Avançados', '2023-01-10', '2023-05-15', NULL, 0),
+(6, 'Redes de Computadores', '2023-01-10', '2023-05-15', NULL, 0),
+(7, 'Segurança da Informação', '2023-09-01', '2023-12-15', NULL, 0),
+(8, 'Engenharia de Software', '2023-01-10', '2023-05-15', NULL, 0),
+(9, 'Machine Learning', '2023-09-01', '2023-12-15', NULL, 0),
+(10, 'Inteligência Artificial', '2023-09-01', '2023-12-15', NULL, 0),
+(11, 'Design Gráfico', '2023-09-01', '2023-12-15', NULL, 0),
+(12, 'UI/UX Design', '2023-09-01', '2023-12-15', NULL, 0),
+(13, 'Animação Digital', '2023-01-10', '2023-05-15', NULL, 0),
+(14, 'Web Design', '2023-01-10', '2023-05-15', NULL, 0),
+(15, 'Design de Produto', '2023-09-01', '2023-12-15', NULL, 0),
+(16, 'Gestão de Produto', '2023-09-01', '2023-12-15', NULL, 0),
+(17, 'Desenvolvimento de Produto', '2023-09-01', '2023-12-15', NULL, 0),
+(18, 'Design Thinking para Produtos', '2023-01-10', '2023-05-15', NULL, 0),
+(19, 'Prototipagem de Produto', '2023-01-10', '2023-05-15', NULL, 0),
+(20, 'Introdução ao Marketing de Produto', '2023-09-01', '2023-12-15', NULL, 0),
+(21, 'Marketing Digital', '2023-09-01', '2023-12-15', NULL, 0),
+(22, 'SEO e SEM para Negócios', '2023-09-01', '2023-12-15', NULL, 0),
+(23, 'Gestão de Mídias Sociais', '2023-01-10', '2023-05-15', NULL, 0),
+(24, 'Estratégias de Marketing de Conteúdo', '2023-01-10', '2023-05-15', NULL, 0),
+(25, 'Branding e Gestão de Marca', '2023-09-01', '2023-12-15', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -246,29 +259,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `address`, `birthday`, `photo`) VALUES
-(103, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
-(104, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
-(105, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
-(106, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
 (108, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
 (109, 'mwoltering8', 'jM1.S`r<', 'mbolens8@usnews.com', NULL, 'Minta', NULL, NULL, NULL),
 (110, 'rgresty9', 'yK9\"J/mH~m(PXMV', 'rkunrad9@moonfruit.com', NULL, 'Rube', NULL, NULL, NULL),
 (111, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
 (112, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
-(114, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
 (115, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
 (116, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
 (117, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
 (119, 'dbolwelli', 'sR9`r~tic}', 'dattlei@free.fr', NULL, 'Dorie', NULL, NULL, NULL),
 (120, 'dyuranovevj', 'kS2\"A)P{vwC%9e', 'dtotterdillj@skyrock.com', NULL, 'Davina', NULL, NULL, NULL),
-(121, 'mdunbabink', 'qR1/94EsL,', 'mcopseyk@google.ca', NULL, 'Mimi', NULL, NULL, NULL),
 (122, 'eethridgel', 'yE7=Lz}{uAFyXB,a', 'estapforthl@tumblr.com', NULL, 'Ezequiel', NULL, NULL, NULL),
-(123, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
 (124, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
 (125, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
-(126, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(126, 'tinch2', '$2y$10$hBZSrg68C2sMAU9auG.xLOQQ4kLnOFQslnJoJ0iapfZ', 'tphibb2@angelfire.com', NULL, 'Toby Silva', '', '0000-00-00', NULL),
 (127, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
-(128, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(128, 'afarn4', '$2y$10$24R0yUyEk6tYvE28G2hd0ux8wn/UiEn.zQloLw.Hl7r', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
 (129, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
 (130, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
 (131, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
@@ -277,7 +283,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (134, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
 (135, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
 (136, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
-(137, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
+(137, 'ebuyersd', '$2y$10$xAtO2YsPrfV6j6wX38fL4.39tjg6UtSH3DV1yLQ1LvW', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
 (138, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
 (139, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
 (140, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
@@ -289,9 +295,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (146, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
 (147, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
 (148, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
-(149, 'tinch2', 'tT85ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(149, 'tinch2', '$2y$10$hBZSrg68C2sMAU9auG.xLOQQ4kLnOFQslnJoJ0iapfZ', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
 (150, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
-(151, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(151, 'afarn4', '$2y$10$24R0yUyEk6tYvE28G2hd0ux8wn/UiEn.zQloLw.Hl7r', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
 (152, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
 (153, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
 (154, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
@@ -300,7 +306,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (157, 'gswindellsa', 'hL2@cCHx', 'gporcasa@chron.com', NULL, 'Giralda', NULL, NULL, NULL),
 (158, 'rivashnikovb', 'cW2}LS3u{K', 'rladdsb@t.co', NULL, 'Ramona', NULL, NULL, NULL),
 (159, 'manderlc', 'uR4(84B8\'UQAI', 'mcroftsc@ow.ly', NULL, 'Mace', NULL, NULL, NULL),
-(160, 'ebuyersd', 'eY4?1P9kw,o', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
+(160, 'ebuyersd', '$2y$10$xAtO2YsPrfV6j6wX38fL4.39tjg6UtSH3DV1yLQ1LvW', 'epaszakd@skype.com', NULL, 'Ellie', NULL, NULL, NULL),
 (161, 'agilsone', 'sA9~wPd237I', 'afancete@rediff.com', NULL, 'Ariella', NULL, NULL, NULL),
 (162, 'ececcolif', 'qF5%Wbsu', 'eschubbertf@free.fr', NULL, 'Eliza', NULL, NULL, NULL),
 (163, 'qabrehartg', 'cG5>(J~@k17', 'qraltong@infoseek.co.jp', NULL, 'Quincy', NULL, NULL, NULL),
@@ -312,9 +318,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (169, 'bkisbeem', 'qV8!jX4y`+wi', 'bcrowderm@mtv.com', NULL, 'Beatrix', NULL, NULL, NULL),
 (170, 'lcroyser0', 'rV2`sQ/Fd#U,c}w', 'lspringle0@soup.io', NULL, 'Lana', NULL, NULL, NULL),
 (171, 'wgeillier1', 'bB9#h(Xo#F', 'wormond1@theglobeandmail.com', NULL, 'Wini', NULL, NULL, NULL),
-(172, 'tinch2', 'tT8\\5ea&a}', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
+(172, 'tinch2', '$2y$10$hBZSrg68C2sMAU9auG.xLOQQ4kLnOFQslnJoJ0iapfZ', 'tphibb2@angelfire.com', NULL, 'Toby', NULL, NULL, NULL),
 (173, 'psewter3', 'eV4(hLRavCtm#!vL', 'pwaind3@npr.org', NULL, 'Phillie', NULL, NULL, NULL),
-(174, 'afarn4', 'zC7`j|`#%K>', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
+(174, 'afarn4', '$2y$10$24R0yUyEk6tYvE28G2hd0ux8wn/UiEn.zQloLw.Hl7r', 'adormer4@wired.com', NULL, 'Aguste', NULL, NULL, NULL),
 (175, 'lelger5', 'oX2~r7_H)%t@', 'lmulvagh5@adobe.com', NULL, 'Liane', NULL, NULL, NULL),
 (176, 'mbrunn6', 'sK0~bS{YY`M?UGL', 'mcolgan6@mit.edu', NULL, 'Mitchell', NULL, NULL, NULL),
 (177, 'mpaumier7', 'mC4)$h.Kb!*~4_{', 'mfurmagier7@census.gov', NULL, 'Mortie', NULL, NULL, NULL),
@@ -351,19 +357,15 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `name`, `a
 (208, 'sbrown1j', '$2y$10$00MEOOZqP7c.jSdXgR9h.OJtQYMbYPR2zydHe4/YBrl', 'sophia.brown1j@example.com', 1, 'Sophia Oliveira', 'Rua Europa', '1989-06-12', 'portrait-image-of-a-happy-beautiful-asian-woman-ma-2022-12-16-05-14-18-utc.jpg'),
 (209, 'gwilliams1k', 'gW1@333', 'grace.williams1k@example.com', 1, 'Grace', NULL, NULL, NULL),
 (210, 'ojones1l', 'oJ1@444', 'oliver.jones1l@example.com', 1, 'Oliver', NULL, NULL, NULL),
-(211, 'zthomas1m', 'zT1@555', 'hebertclever@gmail.com', 3, 'Hebert Clever Oliveira', 'Rua Sergipe, 189', '1983-12-24', NULL),
 (212, 'mmiller1n', 'mM1@666', 'mason.oliveira@example.com', 3, 'Mason Oliveira', 'R. Bahia,189', '1998-06-12', 'portrait-photo-2022-11-17-09-21-58-utc.jpg'),
 (213, 'agarcia1o', 'aG1@777', 'ava.garcia1o@example.com', 3, 'Ava Garcia', 'Rua Europa, 159', '2002-02-09', 'the-young-woman-post-in-the-city-for-photo-2021-12-09-05-59-19-utc.jpg'),
 (214, 'lwilliamson1p', 'lW1@888', 'liam.williamson1p@example.com', 3, 'Liam', NULL, NULL, NULL),
 (215, 'nrobertson1q', 'nR1@999', 'noah.robertson1q@example.com', 3, 'Noah', NULL, NULL, NULL),
 (216, 'ejenkins1r', 'eJ1@aaa', 'ella.jenkins1r@example.com', 3, 'Ella', NULL, NULL, NULL),
 (217, 'jcooper1s', 'jC1@bbb', 'eyplan10@gmail.com', 3, 'João de Oliveira', 'Rua sergipe, 189', '1959-05-12', 'close-up-photo-portrait-of-successful-serious-and-2022-12-08-04-03-12-utc.jpg'),
-(218, 'lwright1t', 'lW1@ccc', 'lily.wright1t@example.com', 3, 'Lily', NULL, NULL, NULL),
-(219, 'oharris1u', 'oH1@ddd', 'oscar.harris1u@example.com', 3, 'Oscar', NULL, NULL, NULL),
 (220, 'ithompson1v', 'iT1@eee', 'isabella.thompson1v@example.com', 3, 'Isabella', NULL, NULL, NULL),
 (221, 'sjackson1w', 'sJ1@fff', 'sophie.jackson1w@example.com', 3, 'Sophie', NULL, NULL, NULL),
 (222, 'ecollins1x', 'eC1@ggg', 'ethan.collins1x@example.com', 3, 'Ethan', NULL, NULL, NULL),
-(223, 'ocarter1y', 'oC1@hhh', 'olivia.carter1y@example.com', 3, 'Olivia', NULL, NULL, NULL),
 (224, 'mhall1z', 'mH1@iii', 'mia.hall1z@example.com', 3, 'Mia', NULL, NULL, NULL),
 (225, 'nwalker20', 'nW1@jjj', 'nathan.walker20@example.com', 3, 'Nathan', NULL, NULL, NULL),
 (226, 'ecampbell21', 'eC1@kkk', 'emma.campbell21@example.com', 3, 'Emma', NULL, NULL, NULL),
@@ -411,14 +413,14 @@ ALTER TABLE `attendance`
 -- Índices de tabela `coursecategories`
 --
 ALTER TABLE `coursecategories`
-  ADD PRIMARY KEY (`CategoryID`);
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Índices de tabela `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`CourseID`),
-  ADD KEY `CategoryID` (`CategoryID`);
+  ADD PRIMARY KEY (`course_id`),
+  ADD KEY `CategoryID` (`category_id`);
 
 --
 -- Índices de tabela `course_student`
@@ -495,13 +497,13 @@ ALTER TABLE `adminlogs`
 -- AUTO_INCREMENT de tabela `coursecategories`
 --
 ALTER TABLE `coursecategories`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `CourseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `materials`
@@ -542,19 +544,19 @@ ALTER TABLE `adminlogs`
 --
 ALTER TABLE `attendance`
   ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
+  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`course_id`);
 
 --
 -- Restrições para tabelas `courses`
 --
 ALTER TABLE `courses`
-  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `coursecategories` (`CategoryID`);
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `coursecategories` (`category_id`);
 
 --
 -- Restrições para tabelas `course_student`
 --
 ALTER TABLE `course_student`
-  ADD CONSTRAINT `course_student_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`),
+  ADD CONSTRAINT `course_student_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`course_id`),
   ADD CONSTRAINT `course_student_ibfk_2` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`);
 
 --
@@ -562,13 +564,13 @@ ALTER TABLE `course_student`
 --
 ALTER TABLE `grades`
   ADD CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`),
-  ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
+  ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`course_id`);
 
 --
 -- Restrições para tabelas `materials`
 --
 ALTER TABLE `materials`
-  ADD CONSTRAINT `materials_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`CourseID`);
+  ADD CONSTRAINT `materials_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courses` (`course_id`);
 
 --
 -- Restrições para tabelas `messages`

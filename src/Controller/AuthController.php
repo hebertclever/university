@@ -28,7 +28,6 @@ class AuthController
     } else {
       return "Houve um erro ao registrar o usuário.";
     }
-    
   }
 
   public function loginUser($email, $password)
@@ -43,39 +42,54 @@ class AuthController
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-      var_dump($user['password']);  
-
       if (password_verify($password, $user['password'])) {
         session_start();
         $_SESSION['email'] = $email;
+
+        
+        switch ($user['roleId']) {
+          case 1:
+            $_SESSION['userType'] = 'Admin';
+            break;
+          case 2:
+            $_SESSION['userType'] = 'Teacher';
+            break;
+          case 3:
+            $_SESSION['userType'] = 'Student';
+            break;
+          default:
+            $_SESSION['userType'] = 'Unknown';
+            break;
+        }
+
         header("Location: personal_info.php");
         exit();
       } else {
         return "Usuário ou senha inválidos";
       }
     } else {
-      echo "Usuário não encontrado!";
+      return "Usuário não encontrado!";
     }
   }
 
+
   public function changePassword($email, $newPassword)
-{
+  {
     $conn = Database::connect();
 
-    
+
     $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
 
-   
+
     $sql = "UPDATE users SET password = :password WHERE email = :email";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->bindParam(":password", $passwordHashed, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
-        return true;
+      return true;
     } else {
-        return "Houve um erro ao atualizar a senha.";
+      return "Houve um erro ao atualizar a senha.";
     }
-}
-
+  }
 }

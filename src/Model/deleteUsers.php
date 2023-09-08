@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../Controller/AdminController.php'; 
-require_once __DIR__ . '/../../View/admin/admin_dashboard.php'; 
+require_once __DIR__ . '/../Controller/AdminController.php'; 
+
 
 
 if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -9,13 +9,12 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id = intval($_GET['id']); 
 
-var_dump($id);
 
 $adminController = new AdminController();
 
 
 if ($adminController->deleteUsers($id)) {
-    header("Location: /../../View/admin/admin_dashboard.php");
+    header("Location:/../../index.php");
     exit;
 } else {
     die("Erro ao deletar o usuário.");

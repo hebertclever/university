@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar 2</title>
+    <title>Sidebar </title>
     <link href="/dist/output.css" rel="stylesheet">
 
 </head>
@@ -137,7 +137,7 @@
                         <path d="M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8" stroke="#545F71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <a href="../logout.php" class="inline-block w-full py-2 pl-11 pr-4 text-md rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800 ">
+                <a href="/src/Model/logout.php" class="inline-block w-full py-2 pl-11 pr-4 text-md rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800 ">
                     <p class="sidebar-hideable">Logout</p>
                 </a>
             </div>

@@ -1,26 +1,5 @@
 <?php
-session_start();
-require_once '../Controller/AuthController.php';
-
-$auth = new AuthController();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    if ($auth->loginUser($email, $password)) {
-
-        
-               header("Location: ../View/admin/admin_dashboard.php");
-        exit();
-    } else {
-        $error = "Usuário ou senha inválidos";
-    }
-}
-
-
-
-
+require_once __DIR__ . '../../Model/loginAction.php';
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,6 @@
 <?php
-function uploadFile($file, $dir = "uploads/")
+
+function uploadFile($file, $dir = "../../uploads")
 {
     $photo = null;
 

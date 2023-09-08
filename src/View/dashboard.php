@@ -1,53 +1,6 @@
 <?php
-
-require_once __DIR__ . '../../../Controller/AdminController.php';
-require_once __DIR__ . '../../../Controller/StudentController.php';
-
-function getUserTypeName($userType)
-{
-    switch ($userType) {
-        case '1':
-            return "Admins";
-        case '2':
-            return "Teachers";
-        case '3':
-            return "Students";
-        default:
-            return "Users";
-    }
-}
-
-
-$adminController = new AdminController();
-
-$userType = $_GET['user_type'] ?? 'all';
-
-switch ($userType) {
-    case '1':
-        $users = $adminController->getAllAdmins();
-        break;
-    case '2':
-        $users = $adminController->getAllTeachers();
-        break;
-    case '3':
-        $users = $adminController->getAllStudents();
-        break;
-    default:
-        $users = $adminController->getAllUsers();
-        break;
-}
-
-$resultsPerPage = $_GET['results_per_page'] ?? 15;
-$currentPage = $_GET['page'] ?? 1;
-
-$searchTerm = $_GET['search'] ?? '';
-$users = $adminController->getUsersByPage($currentPage, $userType, $resultsPerPage, $searchTerm);
-$totalUsers = $adminController->getAllUsers($userType);
-$totalPages = ceil($totalUsers / $resultsPerPage);
-
-
+require_once __DIR__ . '../../Model/dashboardActions.php'
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +13,7 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
 
 <body class="flex">
     <nav>
-        <?php include '../../View/components/sidebar.php'; ?>
+        <?php include __DIR__ . '/sidebar.php'; ?>
     </nav>
 
    
@@ -168,10 +121,10 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
                         <td class="py-2 px-4"><?= $user["address"]; ?></td>
                         <td class="py-2 px-4"><?= $user["birthday"]; ?></td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <a class="edit-button" href="../student/editUsers.php?id=<?= $user['id'] ?>">
+                            <a class="edit-button" href="/src/View/editUsers.php?id=<?= $user['id'] ?>">
                                 <img src="/assets/user-edit.svg" alt="Editar">
                             </a>
-                            <a href="../../Controller/actions/deleteUsers.php?id=<?= $user['id'] ?>">
+                            <a href="/src/Model/deleteUsers.php?id=<?= $user['id'] ?>">
                                 <img src="/assets/trash-02.svg" alt="Deletar">
                             </a>
                         </td>
@@ -179,8 +132,6 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
                 <?php } ?>
             </tbody>
         </table>
-
-
 
         <div class="flex justify-end mt-4">
             <!-- Pagination -->
@@ -193,9 +144,6 @@ $totalPages = ceil($totalUsers / $resultsPerPage);
                 <?php endfor; ?>
             </ul>
         </div>
-
-
-
 
     </div>
 
